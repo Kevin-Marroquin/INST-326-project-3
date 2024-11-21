@@ -61,8 +61,12 @@ if __name__ == "__main__":
     for caregiver, details in payments.items():
         print(f"{caregiver}: {details}")
 
-  
-# =======
+# end of Kevin's part 2
+
+
+
+# start of part 1 - Soliana 
+
 from collections import defaultdict
 
 #define caregiver class
@@ -119,4 +123,5 @@ if __name__ == "__main__":
 
     #caregivers displayed 
     manager.list_caregivers()
-# >>>>>>> main
+
+# end of Soliana's part 1
