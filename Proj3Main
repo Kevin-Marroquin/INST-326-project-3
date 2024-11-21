@@ -67,7 +67,7 @@ if __name__ == "__main__":
 import calender 
 
 class Schedular:
-  def__init__(self, caregivers):
+  def __init__(self, caregivers):
     """Initialize scheduler with a list of caregivers."""
   self.caregivers = caregivers
 
