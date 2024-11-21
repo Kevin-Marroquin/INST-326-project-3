@@ -64,9 +64,9 @@ if __name__ == "__main__":
 # part 2 of the project: Scheduling and Payment Calculation 
 # This section creates the care schedule and also calclulates payment for the caregivers 
 
-import calender 
+import calendar 
 
-class Scheduler:
+class Scheduler
   def __init__(self, caregivers):
       """Initialize scheduler with a list of caregivers."""
       self.caregivers = caregivers
