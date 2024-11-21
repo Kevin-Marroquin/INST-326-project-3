@@ -1,5 +1,5 @@
 # part 2 of the project: Scheduling and Payment Calculation 
-# This section creates the care schedule and also calclulates payment for the caregivers
+# This section creates the care schedule and also calclulates payment for the caregivers 
 
 import calender 
 
