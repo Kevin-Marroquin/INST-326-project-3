@@ -59,7 +59,8 @@ if __name__ == "__main__":
 
 # End of part 1 main
 
-# <<<<<<< Part-2---K
+#  Part-2---Kevin
+
 # part 2 of the project: Scheduling and Payment Calculation 
 # This section creates the care schedule and also calclulates payment for the caregivers 
 
