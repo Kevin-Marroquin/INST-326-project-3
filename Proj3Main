@@ -1,3 +1,4 @@
+# <<<<<<< Part-2---K
 # part 2 of the project: Scheduling and Payment Calculation 
 # This section creates the care schedule and also calclulates payment for the caregivers 
 
@@ -62,3 +63,61 @@ if __name__ == "__main__":
     print(f"{caregiver}: {details}")
 
   
+# =======
+from collections import defaultdict
+
+#define caregiver class
+class Caregiver:
+    def __init__(self, name, phone, email, pay_rate=20):
+        """Initialize caregiver details."""
+        self.name = name
+        self.phone = phone
+        self.email = email
+        self.pay_rate = pay_rate  
+        self.availability = defaultdict(lambda: "available")  
+
+    def set_availability(self, day, shift, status):
+        """Set caregiver availability for a specific day and shift."""
+       
+        self.availability[(day, shift)] = status
+
+    def get_availability(self, day, shift):
+        """Retrieve caregiver availability for a specific day and shift."""
+        return self.availability[(day, shift)]
+
+    def __str__(self):
+        """String representation for caregiver."""
+        return f"Caregiver: {self.name}, Phone: {self.phone}, Email: {self.email}"
+
+#list of caregivers 
+class CaregiverManager:
+    def __init__(self):
+        """Initialize caregiver manager."""
+        self.caregivers = []
+
+    def add_caregiver(self, caregiver):
+        """Add a caregiver to the manager."""
+        self.caregivers.append(caregiver)
+
+    def list_caregivers(self):
+        """List all caregivers."""
+        for caregiver in self.caregivers:
+            print(caregiver)
+
+#ex. 
+if __name__ == "__main__":
+    manager = CaregiverManager()
+
+    #caregivers 
+    caregiver1 = Caregiver("Jasmine Price", "944-5489", "PriceJas@inst.com")
+    caregiver2 = Caregiver("Preston Robby", "447-8374", "PresRob@inst.com")
+    manager.add_caregiver(caregiver1)
+    manager.add_caregiver(caregiver2)
+
+    #availability
+    caregiver1.set_availability("Tuesday", "AM", "preferred")
+    caregiver1.set_availability("Friday", "PM", "unavailable")
+
+    #caregivers displayed 
+    manager.list_caregivers()
+# >>>>>>> main
