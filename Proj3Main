@@ -5,62 +5,60 @@
 import calender 
 
 class Schedular:
-  def__init__(self, caregivers):
-    """Initialize scheduler with a list of caregivers."""
-  self.caregivers = caregivers
+  def __init__(self, caregivers):
+      """Initialize scheduler with a list of caregivers."""
+      self.caregivers = caregivers
 
   def create_schedule(self, month, year):
-    """Generate a care schedule for the given month."""
-  cal = calendar.Calendar()
-  schedule = defaultdict(list)
+      """Generate a care schedule for the given month."""
+      cal = calendar.Calendar()
+      schedule = defaultdict(list)
 
-    for day, weekday in cal.itermonthdays2(year, month):
-      # below skips the padding days
-      if day == 0: 
-        continue
-      for shift in ["AM", "PM"]:
-        #Assign caregiver based on availability
-        assigned = False 
-        for caregiver in self.caregivers:
-          if 
-            caregiver.get_availability(calendar.day_name[weekday], shift) != "unavailable":
-            schedule[(day, shift)].append(caregiver.name)
-            assigned = True
-            break
-        if not assigned:
-          schedule[(day, shift)].append("Unassigned")
+      for day, weekday in cal.itermonthdays2(year, month):
+          # below skips the padding days
+          if day == 0: 
+              continue
+          for shift in ["AM", "PM"]:
+              #Assign caregiver based on availability
+              assigned = False 
+              for caregiver in self.caregivers:
+                  if caregiver.get_availability(calendar.day_name[weekday], shift) != "unavailable":
+                      schedule[(day, shift)].append(caregiver.name)
+                      assigned = True
+                      break
+              if not assigned:
+                  schedule[(day, shift)].append("Unassigned")
 
-    return schedule
+      return schedule
 
   def calculate_payment(self):
-    """Calculate weekly payment for each caregiver."""
-    payment_report = {}
-    for caregiver in self.caregivers:
-      hours_worked = sum (
-        1 for ((day, shift), caregivers) in schedule.items()
-if caregiver.name in caregivers
-      )
-      weekly_pay = hours_worked * caregiver.pay_rate
-      payment_report[caregiver.name] = {"Hours Worked": hours_worked, "Weekly Pay": weekly_pay}
-    return payment_report
+      """Calculate weekly payment for each caregiver."""
+      payment_report = {}
+      for caregiver in self.caregivers:
+          hours_worked = sum (
+              1 for ((day, shift), caregivers) in schedule.items() if caregiver.name in caregivers
+          )
+          weekly_pay = hours_worked * caregiver.pay_rate
+          payment_report[caregiver.name] = {"Hours Worked": hours_worked, "Weekly Pay": weekly_pay}
+      return payment_report
 
 #Example usage 
 if __name__ == "__main__":
-  #Assuming caregivers from part 1
-  schedular = Scheduler(manager.caregivers)
+    # Assuming caregivers from part 1
+    schedular = Scheduler(manager.caregivers)
 
-  # Create a schedule for November 2024
-  schedule = scheduler.create_schedule(11, 2024)
+    # Create a schedule for November 2024
+    schedule = scheduler.create_schedule(11, 2024)
 
-  # Display schedule 
-  for key, value in schedule.items():
-    print(f"Day {key[0]}, {key[1]} shift: {value}")
+    # Display schedule 
+    for key, value in schedule.items():
+        print(f"Day {key[0]}, {key[1]} shift: {value}")
 
-  # Calculate payments
-  payments = scheduler.calculate_payment()
-  print("\nPayment Report:")
-  for caregiver, details in payments.items():
-    print(f"{caregiver}: {details}")
+    # Calculate payments
+    payments = scheduler.calculate_payment()
+    print("\nPayment Report:")
+    for caregiver, details in payments.items():
+        print(f"{caregiver}: {details}")
 
   
 # =======
