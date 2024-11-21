@@ -66,31 +66,30 @@ if __name__ == "__main__":
 
 import calender 
 
-class Schedular:
+class Scheduler:
   def __init__(self, caregivers):
-    """Initialize scheduler with a list of caregivers."""
-  self.caregivers = caregivers
+      """Initialize scheduler with a list of caregivers."""
+      self.caregivers = caregivers
 
   def create_schedule(self, month, year):
-    """Generate a care schedule for the given month."""
-  cal = calendar.Calendar()
-  schedule = defaultdict(list)
+      """Generate a care schedule for the given month."""
+      cal = calendar.Calendar()
+      schedule = defaultdict(list)
 
-    for day, weekday in cal.itermonthdays2(year, month):
-      # below skips the padding days
-      if day == 0: 
-        continue
-      for shift in ["AM", "PM"]:
-        #Assign caregiver based on availability
-        assigned = False 
-        for caregiver in self.caregivers:
-          if 
-            caregiver.get_availability(calendar.day_name[weekday], shift) != "unavailable":
-            schedule[(day, shift)].append(caregiver.name)
-            assigned = True
-            break
-        if not assigned:
-          schedule[(day, shift)].append("Unassigned")
+      for day, weekday in cal.itermonthdays2(year, month):
+          # below skips the padding days
+          if day == 0: 
+              continue
+          for shift in ["AM", "PM"]:
+              # Assign caregiver based on availability
+              assigned = False 
+              for caregiver in self.caregivers:
+                  if caregiver.get_availability(calendar.day_name[weekday], shift) != "unavailable":
+                      schedule[(day, shift)].append(caregiver.name)
+                      assigned = True
+                      break
+              if not assigned:
+                  schedule[(day, shift)].append("Unassigned")
 
     return schedule
 
