@@ -43,7 +43,7 @@ if caregiver.name in caregivers
       payment_report[caregiver.name] = {"Hours Worked": hours_worked, "Weekly Pay": weekly_pay}
     return payment_report
 
-# Example usage 
+#Example usage 
 if __name__ == "__main__":
   #Assuming caregivers from part 1
   schedular = Scheduler(manager.caregivers)
