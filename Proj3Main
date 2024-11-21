@@ -91,36 +91,35 @@ class Scheduler:
               if not assigned:
                   schedule[(day, shift)].append("Unassigned")
 
-    return schedule
+      return schedule
 
   def calculate_payment(self):
-    """Calculate weekly payment for each caregiver."""
-    payment_report = {}
-    for caregiver in self.caregivers:
-      hours_worked = sum (
-        1 for ((day, shift), caregivers) in schedule.items()
-if caregiver.name in caregivers
-      )
-      weekly_pay = hours_worked * caregiver.pay_rate
-      payment_report[caregiver.name] = {"Hours Worked": hours_worked, "Weekly Pay": weekly_pay}
-    return payment_report
+      """Calculate weekly payment for each caregiver."""
+      payment_report = {}
+      for caregiver in self.caregivers:
+          hours_worked = sum (
+              1 for ((day, shift), caregivers) in schedule.items() if caregiver.name in caregivers
+          )
+          weekly_pay = hours_worked * caregiver.pay_rate
+          payment_report[caregiver.name] = {"Hours Worked": hours_worked, "Weekly Pay": weekly_pay}
+      return payment_report
 
 #Example usage 
 if __name__ == "__main__":
-  #Assuming caregivers from part 1
-  scheduler = Scheduler(manager.caregivers)
+    # Assuming caregivers from part 1
+    scheduler = Scheduler(manager.caregivers)
 
-  # Create a schedule for November 2024
-  schedule = scheduler.create_schedule(11, 2024)
+    # Create a schedule for November 2024
+    schedule = scheduler.create_schedule(11, 2024)
 
-  # Display schedule 
-  for key, value in schedule.items():
-    print(f"Day {key[0]}, {key[1]} shift: {value}")
+    # Display schedule 
+    for key, value in schedule.items():
+        print(f"Day {key[0]}, {key[1]} shift: {value}")
 
-  # Calculate payments
-  payments = scheduler.calculate_payment()
-  print("\nPayment Report:")
-  for caregiver, details in payments.items():
-    print(f"{caregiver}: {details}")
+    # Calculate payments
+    payments = scheduler.calculate_payment()
+    print("\nPayment Report:")
+    for caregiver, details in payments.items():
+        print(f"{caregiver}: {details}")
 
 # end of part 2
