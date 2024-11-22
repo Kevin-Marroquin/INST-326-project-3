@@ -6,7 +6,7 @@ This program simplifies caregiver scheduling, first created to manage shifts for
 
 1. *Caregiver Management**: Tracks caregiver details and availability (`Preferred`, `Available`, `Unavailable`).  
 2. *Schedule Generation**: Creates schedules for two daily shifts (7:00 AM - 1:00 PM, 1:00 PM - 7:00 PM) based on availability and preferences.  
-3. *HTML Calendar**: Uses Python’s `calendar` module to display schedules visually.  
+3. *HTML Calendar**: Uses Python’s `calender` module to display schedules visually.  
 4. *Pay Calculation**: Calculates weekly pay for paid caregivers ($20/hour) and generates pay reports.  
 
 #Technical Details  
